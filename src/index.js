@@ -7,7 +7,7 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 
 
-const stateChanger = (state, action) => {
+const reducer = (state, action) => {
     const initialState = {
         n: 0
     }
@@ -22,7 +22,7 @@ const stateChanger = (state, action) => {
     return initialState
 }
 
-const store = createStore(stateChanger)
+const store = createStore(reducer)
 
 store.subscribe(render)
 

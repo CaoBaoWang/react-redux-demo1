@@ -11,7 +11,7 @@ function App(props) {
 }
 
 
-function getPartialStore(state) {
+function mapStateToProps(state) {
   return {
     n: state.n
   }
@@ -24,4 +24,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 // export default App;
-export default connect(getPartialStore, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
