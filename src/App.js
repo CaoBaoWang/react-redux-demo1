@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import { connect } from 'react-redux'
+function App(props) {
+  console.log(props)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {props.n}
+      <button onClick={props.add1}>+1</button>
     </div>
   );
 }
 
-export default App;
+
+function getPartialStore(state) {
+  return {
+    n: state.n
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    add1: ()=> dispatch({type: 'add', payload: 1})
+  }
+}
+
+// export default App;
+export default connect(getPartialStore, mapDispatchToProps)(App)
